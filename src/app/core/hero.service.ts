@@ -7,6 +7,7 @@ import * as globals  from '../configs/http.configs';
 import { Hero } from '../classes/hero';
 import { MessageService } from './message.service';
 import {ApiService} from "./api.service";
+import { environment } from 'src/environments/environment.dev';
 
 
 @Injectable({
@@ -17,6 +18,7 @@ export class HeroService {
   private heroesUrl = globals.URL + '/heroes';
 
   getHeroes(): Observable<Hero[]> {
+    console.log(environment.apiURL);
     return this.api.get<Hero[]>(this.heroesUrl).pipe(
       tap(h => this.log(`fetched ${h.length} heroes`)),
       catchError(this.handleError<Hero[]>('getHeroes', [])));
