@@ -3,6 +3,8 @@ import { Hero } from '../classes/hero';
 import { HeroService } from '../core/hero.service';
 import { ArenaService } from '../core/arena.service';
 import {Arena} from "../classes/arena";
+import { Observable, BehaviorSubject, of } from 'rxjs';
+import { skip, map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-dashboard',
@@ -13,6 +15,16 @@ export class DashboardComponent implements OnInit {
   heroes: Hero[] = [];
   arenas: Arena[] = [];
   strongestHero: Hero;
+  word = 'hello';
+  observedArray = {hello0: [this.word]};
+  myAsyncVariable: Observable<object> = of(this.observedArray);
+  private _subjVariable = new BehaviorSubject<object>(this.observedArray);
+  subjVariable: Observable<object> = this._subjVariable.asObservable();
+
+  addOne() {
+    this.observedArray.hello0.push(this.word);
+    this._subjVariable.next(this.observedArray);
+  }
 
   constructor(private heroService: HeroService,
       private arenaService:ArenaService) { }

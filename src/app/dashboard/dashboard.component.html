@@ -1,3 +1,13 @@
+<div *ngFor="let value of myAsyncVariable.hello0 | async">
+  assyn{{value}}
+</div>
+<div *ngFor="let value of subjVariable.hello0 | async">
+  subj{{value}}
+</div>
+<div *ngFor="let arr of observedArray.hello0">
+  modd{{arr}}
+</div>
+<button (click)="addOne()">Say one more time</button>
 <div *ngIf="strongestHero">
   <h3>Strongest Hero</h3>
   <a routerLink="/detail/{{hero.id}}">
