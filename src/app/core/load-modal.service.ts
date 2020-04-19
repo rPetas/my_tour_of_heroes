@@ -12,9 +12,16 @@ export class LoadModalService {
     private dialog: MatDialog
   ) { }
 
-  openModal(): MatDialogRef<BloackingLoadDialogComponent> {
-    return this.dialog.open(BloackingLoadDialogComponent, {
-      width: '50%', disableClose: true
-    });
+  openModal(message?: string, additionalMessage?: string): MatDialogRef<BloackingLoadDialogComponent> {
+    const dialogData = {
+      width: '50%', disableClose: true, data: {}
+    };
+    if (message) {
+      dialogData.data['message'] = message;
+    }
+    if (additionalMessage) {
+      dialogData.data['additionalMessage'] = additionalMessage;
+    }
+    return this.dialog.open(BloackingLoadDialogComponent, dialogData);
   }
 }

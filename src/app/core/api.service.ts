@@ -24,8 +24,7 @@ export class ApiService {
    * @returns response or error
    */
   get<T>(url: string, options = {}): Observable<T> {
-    return this._http
-      .get<T>(url, options);
+    return this._http.get<T>(url, options);
   }
   /**
    * It uses [HttpClient API]{@link https://angular.io/guide/http} to proceed

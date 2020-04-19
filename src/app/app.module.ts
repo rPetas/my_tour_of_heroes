@@ -14,7 +14,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { HeroSearchComponent } from './hero-search/hero-search.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
-import { MatDialogModule } from '@angular/material/dialog';
+import { MatDialogModule, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { BloackingLoadDialogComponent } from './bloacking-load-dialog/bloacking-load-dialog.component';
 
 @NgModule({
@@ -35,13 +35,15 @@ import { BloackingLoadDialogComponent } from './bloacking-load-dialog/bloacking-
     HttpClientModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientInMemoryWebApiModule.forRoot(
+     HttpClientInMemoryWebApiModule.forRoot(
       InMemoryDataService, { dataEncapsulation: false }),
     BrowserAnimationsModule,
     MatProgressSpinnerModule,
     MatDialogModule
   ],
-  providers: [],
+  providers: [
+    { provide: MAT_DIALOG_DATA, useValue: {} }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
