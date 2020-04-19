@@ -24,12 +24,13 @@
               "src/assets"
             ],
             "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
               "src/styles.css"
             ],
             "scripts": []
           },
           "configurations": {
-            "development":{
+            "development": {
               "fileReplacements": [
                 {
                   "replace": "src/environments/environment.ts",
@@ -74,7 +75,7 @@
             "browserTarget": "angular-tour-of-heroes:build"
           },
           "configurations": {
-            "development":{
+            "development": {
               "browserTarget": "angular-tour-of-heroes:build:development"
             },
             "production": {
@@ -100,6 +101,7 @@
               "src/assets"
             ],
             "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
               "src/styles.css"
             ],
             "scripts": []
@@ -131,6 +133,7 @@
           }
         }
       }
-    }},
+    }
+  },
   "defaultProject": "angular-tour-of-heroes"
 }

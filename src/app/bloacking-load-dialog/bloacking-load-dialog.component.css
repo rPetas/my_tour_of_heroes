@@ -1,0 +1,11 @@
+.loading-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+  
+.loading-container p {
+  text-align: start;
+  width: 80%;
+}

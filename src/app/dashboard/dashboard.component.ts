@@ -1,10 +1,10 @@
+import { LoadModalService } from '../core/load-modal.service';
 import { Component, OnInit } from '@angular/core';
 import { Hero } from '../classes/hero';
 import { HeroService } from '../core/hero.service';
 import { ArenaService } from '../core/arena.service';
 import {Arena} from "../classes/arena";
 import { Observable, BehaviorSubject, of } from 'rxjs';
-import { skip, map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-dashboard',
@@ -26,8 +26,16 @@ export class DashboardComponent implements OnInit {
     this._subjVariable.next(this.observedArray);
   }
 
-  constructor(private heroService: HeroService,
-      private arenaService:ArenaService) { }
+  loadModal() {
+    const modal = this.blockingModalService.openModal();
+    setTimeout(() => modal.close(), 5000);
+  }
+
+  constructor(
+    private heroService: HeroService,
+    private arenaService: ArenaService,
+    private blockingModalService: LoadModalService
+  ) {}
 
   ngOnInit() {
     this.getHeroes();
